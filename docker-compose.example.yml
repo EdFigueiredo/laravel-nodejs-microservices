@@ -1,0 +1,83 @@
+version: '3.8'
+
+services:
+  # Banco de dados MySQL
+  mysql:
+    image: mysql:8.0
+    container_name: microservices_mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DB_DATABASE:-laravel_db}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-your_root_password_here}
+      MYSQL_USER: ${DB_USERNAME:-laravel_user}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-your_secure_password_here}
+    ports:
+      - "${DB_PORT:-3306}:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - microservices_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+
+  # Microsserviço Node.js
+  node-service:
+    build: ./node-microservice
+    container_name: node_microservice
+    restart: unless-stopped
+    ports:
+      - "${NODE_PORT:-3001}:3001"
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - PORT=3001
+    volumes:
+      - ./node-microservice:/app
+      - /app/node_modules
+    networks:
+      - microservices_network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Aplicação Laravel
+  laravel-app:
+    build: ./laravel-app
+    container_name: laravel_app
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8000}:8000"
+    environment:
+      - APP_ENV=${APP_ENV:-local}
+      - APP_DEBUG=${APP_DEBUG:-true}
+      - DB_CONNECTION=mysql
+      - DB_HOST=mysql
+      - DB_PORT=3306
+      - DB_DATABASE=${DB_DATABASE:-laravel_db}
+      - DB_USERNAME=${DB_USERNAME:-laravel_user}
+      - DB_PASSWORD=${DB_PASSWORD:-your_secure_password_here}
+      - NODE_SERVICE_URL=http://node-service:3001
+    volumes:
+      - ./laravel-app:/var/www/html
+    depends_on:
+      mysql:
+        condition: service_healthy
+      node-service:
+        condition: service_healthy
+    networks:
+      - microservices_network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+volumes:
+  mysql_data:
+
+networks:
+  microservices_network:
+    driver: bridge 

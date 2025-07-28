@@ -1,0 +1,439 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-01-28T18:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "req_group_001",
+      "_type": "request_group",
+      "parentId": "wrk_001",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "name": "🏥 Health Checks",
+      "description": "Endpoints para verificar saúde dos serviços",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1706468400000
+    },
+    {
+      "_id": "req_001",
+      "_type": "request",
+      "parentId": "req_group_001",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "url": "{{ _.base_url_laravel }}/api/health",
+      "name": "Laravel Health Check",
+      "description": "Verifica status do Laravel + Banco",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_001",
+          "name": "Accept",
+          "value": "application/json",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1706468400000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_002",
+      "_type": "request",
+      "parentId": "req_group_001",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "url": "{{ _.base_url_node }}/health",
+      "name": "Node.js Health Check",
+      "description": "Verifica status do Node.js",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_002",
+          "name": "Accept",
+          "value": "application/json",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1706468399000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_003",
+      "_type": "request",
+      "parentId": "req_group_001",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "url": "{{ _.base_url_laravel }}/api/external",
+      "name": "External Service Test",
+      "description": "Testa comunicação entre serviços",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_003",
+          "name": "Accept",
+          "value": "application/json",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1706468398000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_group_002",
+      "_type": "request_group",
+      "parentId": "wrk_001",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "name": "👥 Users CRUD",
+      "description": "Operações CRUD para usuários",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1706468300000
+    },
+    {
+      "_id": "req_004",
+      "_type": "request",
+      "parentId": "req_group_002",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "url": "{{ _.base_url_laravel }}/api/users",
+      "name": "Users - List All",
+      "description": "Lista todos os usuários",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_004",
+          "name": "Accept",
+          "value": "application/json",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1706468400000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_005",
+      "_type": "request",
+      "parentId": "req_group_002",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "url": "{{ _.base_url_laravel }}/api/users",
+      "name": "Users - Create New",
+      "description": "Cria um novo usuário",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"João Silva\",\n  \"email\": \"joao@example.com\",\n  \"password\": \"senha123\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_005",
+          "name": "Content-Type",
+          "value": "application/json",
+          "description": ""
+        },
+        {
+          "id": "pair_006",
+          "name": "Accept",
+          "value": "application/json",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1706468399000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_006",
+      "_type": "request",
+      "parentId": "req_group_002",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "url": "{{ _.base_url_laravel }}/api/users/1",
+      "name": "Users - Get by ID",
+      "description": "Busca usuário específico",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_007",
+          "name": "Accept",
+          "value": "application/json",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1706468398000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_007",
+      "_type": "request",
+      "parentId": "req_group_002",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "url": "{{ _.base_url_laravel }}/api/users/1",
+      "name": "Users - Update",
+      "description": "Atualiza um usuário",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"João Silva Atualizado\",\n  \"email\": \"joao.novo@example.com\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_008",
+          "name": "Content-Type",
+          "value": "application/json",
+          "description": ""
+        },
+        {
+          "id": "pair_009",
+          "name": "Accept",
+          "value": "application/json",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1706468397000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_008",
+      "_type": "request",
+      "parentId": "req_group_002",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "url": "{{ _.base_url_laravel }}/api/users/1",
+      "name": "Users - Delete",
+      "description": "Remove um usuário",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_010",
+          "name": "Accept",
+          "value": "application/json",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1706468396000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_group_003",
+      "_type": "request_group",
+      "parentId": "wrk_001",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "name": "🟢 Node.js Endpoints",
+      "description": "Endpoints do microsserviço Node.js",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1706468200000
+    },
+    {
+      "_id": "req_009",
+      "_type": "request",
+      "parentId": "req_group_003",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "url": "{{ _.base_url_node }}/",
+      "name": "Node.js - API Info",
+      "description": "Informações da API",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_011",
+          "name": "Accept",
+          "value": "application/json",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1706468400000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_010",
+      "_type": "request",
+      "parentId": "req_group_003",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "url": "{{ _.base_url_node }}/data",
+      "name": "Node.js - Mock Data",
+      "description": "Dados mock para Laravel",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_012",
+          "name": "Accept",
+          "value": "application/json",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1706468399000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_011",
+      "_type": "request",
+      "parentId": "req_group_003",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "url": "{{ _.base_url_node }}/users",
+      "name": "Node.js - Mock Users",
+      "description": "Usuários mock",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_013",
+          "name": "Accept",
+          "value": "application/json",
+          "description": ""
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1706468398000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "env_001",
+      "_type": "environment",
+      "parentId": "wrk_001",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "name": "Base Environment",
+      "data": {
+        "base_url_laravel": "http://localhost:8000",
+        "base_url_node": "http://localhost:3001"
+      },
+      "dataPropertyOrder": {
+        "&": ["base_url_laravel", "base_url_node"]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1706468400000
+    },
+    {
+      "_id": "jar_001",
+      "_type": "cookie_jar",
+      "parentId": "wrk_001",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "name": "Default Jar",
+      "cookies": []
+    },
+    {
+      "_id": "spc_001",
+      "_type": "api_spec",
+      "parentId": "wrk_001",
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "fileName": "Laravel Node.js Microservices",
+      "contents": "",
+      "contentType": "yaml"
+    },
+    {
+      "_id": "wrk_001",
+      "_type": "workspace",
+      "parentId": null,
+      "modified": 1706468400000,
+      "created": 1706468400000,
+      "name": "Laravel Node.js Microservices",
+      "description": "Coleção completa para testar os microsserviços Laravel + Node.js",
+      "scope": "collection"
+    }
+  ]
+} 

@@ -1,0 +1,42 @@
+# Arquivos de ambiente sensíveis
+.env
+.env.local
+.env.production
+.env.staging
+laravel-app/.env
+node-microservice/.env
+
+# Logs
+*.log
+logs/
+
+# Docker
+docker-compose.override.yml
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Laravel
+laravel-app/vendor/
+laravel-app/storage/logs/
+laravel-app/storage/framework/cache/
+laravel-app/storage/framework/sessions/
+laravel-app/storage/framework/views/
+laravel-app/bootstrap/cache/
+
+# Banco de dados
+*.sqlite
+*.db 
